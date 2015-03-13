@@ -1,0 +1,21 @@
+<!-- https://developers.google.com/maps/documentation/javascript/examples/marker-remove -->
+<!-- https://github.com/bahar/WorldCityLocations -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>where</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script type="text/javascript" src="js/google.js"></script>
+  <script type="text/javascript" src="js/latlng.js"></script>
+  </head>
+  <body onload="latlngsearch();">
+    <div id="panel">
+      <button onclick="submit();" id="click">Submit</button>
+      <p><span id="prompt"></span><span id="count" style="font-weight: bold; color: #149999"></span></p>
+    </div>
+    <div id="map"></div>
+  </body>
+</html>
