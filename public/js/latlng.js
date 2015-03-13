@@ -31,7 +31,7 @@ function latlnguser ( callback ) {
 function latlngsearch () {
   var id = Math.floor(Math.random() * 10567); // real id +1
   console.log("random id: " + id);
-  var localjson = 'cities.json';
+  var localjson = '../cities.json';
   $.ajax ({
     url: localjson,
     dataType: "json",
