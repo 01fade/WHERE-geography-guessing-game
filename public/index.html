@@ -4,18 +4,67 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>where</title>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <title>WHERE</title>
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <script type="text/javascript" src="js/google.js"></script>
-  <script type="text/javascript" src="js/latlng.js"></script>
   </head>
-  <body onload="latlngsearch();">
-    <div id="panel">
-      <button onclick="submit();" id="click">Submit</button>
-      <p><span id="prompt"></span><span id="count" style="font-weight: bold; color: #149999"></span></p>
-    </div>
-    <div id="map"></div>
+  <body>
+    <!-- placeholder -->
+    <div id="container"></div>
+
+    <!-- Start template -->
+    <script id="tpl-start" type="text/html">
+      <div id="start-screen">
+        <img id="logo" src="img/where-logo.png"> <br>
+        <img id="desc" src="img/desc.png"> <br>
+        <button id="start-host">TEACHER</button>
+        <button id="start-player">STUDENT</button>
+      </div>
+    </script>
+
+    <!-- Host template -->
+    <!-- http://stackoverflow.com/questions/8595909/how-to-completley-disable-any-mouse-click -->
+    <script id="tpl-host" type="text/html">
+      <div id="panel">
+        <button id="check">Check</button> 
+        <button id="new-game">New Game</button>
+        <p id="find"><span id="prompt">Where is <b><%=city%></b>, <%=country%>?</span>
+        <span id="winner-bar"></span>
+        </p>
+      </div>
+      <button id="reset">Reset</button>
+      <button id="scoreboard" disabled>Scoreboard</button>
+      <div id="view-scoreboard">
+        <button id="close">X</button>
+        <ul id="scorelist">
+        </ul>
+      </div>
+      <div id="map"></div>
+    </script>
+
+    <!-- Player template -->
+    <script id="tpl-player" type="text/html">
+      <p id="winOrLoose"><span id="result">Where is <b><%=city%></b>, <%=country%>?</span></p>
+      <p id="player-stats"><span id="player-names"><%=name%></span><span id="player-scores"></span></p>
+      <button id="scoreboard" disabled>Scoreboard</button>
+      <div id="view-scoreboard" disabled>
+        <button id="close">X</button>
+        <ul id="scorelist">
+        </ul>
+      </div>
+      <div id="map"></div>
+    </script>
+
+
+    <!-- ADD THIS LIBRARY FOR SOCKET.IO -->
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/underscore.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script type="text/javascript" src="js/icons.js"></script>
+    <script type="text/javascript" src="js/google.js"></script>
+    <script type="text/javascript" src="js/latlng.js"></script>
+    <script type="text/javascript" src="js/socket.js"></script>
+
   </body>
 </html>

@@ -1,74 +1,226 @@
-html, body, #map {
-	height: 100%;
-	margin: 0px;
-	padding: 0px;
+@import url(http://fonts.googleapis.com/css?family=Muli);
+
+html, body, #container, #map {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-image: url("../img/background.png");
 }
 
-#panel {
-	position: absolute;
-	top: 5px;
-	margin: auto;
-	z-index: 5;
-	text-align: center;
-	width: 100%;
-	background-color: transparent;
-	padding: 5px;
-  }
-
- #panel p {
- 	padding: 20px 0 0 0;
- 	font-family: sans-serif;
- }
+p, button, span, li {
+  font-family: 'Muli', sans-serif;
+}
 
 button {
-	float: right;
-	background-color: #16ACA0;
-	border: 0px;
-	color: #fff;
-	font-size:14px;
-	-webkit-transition: 0.4s;
-	transition: 0.4s;
-	padding: 20px 30px;	
-	margin: 20px 30px 0 0;
+  font-size: 18px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
 }
 
-button:hover {
-	cursor: pointer;
-	background-color: #999;	
+#view-scoreboard {
+  background: rgba(0,0,0, 0.8);
+  color: white;
+  width: 50%;
+  min-width: 400px;
+  top: 20%;
+  left: 25%;
+  height: 60%;
+  margin: 0 auto;
+  z-index: 20;
+  position: absolute;
 }
 
-/*
- .overlay{
-  display:block;
-  text-align:center;
-  color:#fff;
-  font-size:60px;
-  line-height:80px;
-  opacity:0.8;
-  background:#4477aa;
-  border:solid 3px #336699;
-  border-radius:4px;
-  box-shadow:2px 2px 10px #333;
-  text-shadow:1px 1px 1px #666;
-  padding:0 4px;
+#close {
+  position: absolute;
+  z-index: 30;
+  top: 10px;
+  right: 10px;
+  background-color: #000;
+  border: 0px;
+  color: #fff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  padding: 8px 12px; 
+  font-size: 10px;
 }
 
-.overlay_arrow{
-  left:50%;
-  margin-left:-16px;
-  width:0;
-  height:0;
-  position:absolute;
+#close:hover {
+  cursor: pointer;
+  background-color: #222;  
 }
-.overlay_arrow.above{
-  bottom:-15px;
-  border-left:16px solid transparent;
-  border-right:16px solid transparent;
-  border-top:16px solid #336699;
+
+li {
+  list-style: none;
+  height: 40px;
+  font-size: 18px;
 }
-.overlay_arrow.below{
-  top:-15px;
-  border-left:16px solid transparent;
-  border-right:16px solid transparent;
-  border-bottom:16px solid #336699;
-}*/
+
+ul {
+  height: 93%;
+  overflow: scroll;
+}
+
+/***************************************/
+/*Player Screen*/
+/***************************************/
+
+ #winOrLoose, #player-stats {
+  padding: 14px 20px 0 20px;
+  position: absolute;
+  margin: auto;
+  z-index: 20;
+  text-align: center;
+  line-height: 20px;
+  height: 30px;
+  font-size: 18px;
+}
+
+#winOrLoose {
+  color: white;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0,0,0,0.8);
+}
+
+#player-stats{
+  top: 20px;
+  right: 20px;
+}
+
+#player-scores {
+  color: #C22A2C;
+  font-weight: bold;
+  float: left;
+  padding-left: 5px;
+}
+
+#player-names {
+  float: left;
+}
+
+/***************************************/
+/*Host Screen*/
+/***************************************/
+
+#panel {
+  position: absolute;
+  z-index: 20;
+  text-align: left;
+  width: 100%;
+  background-color: transparent;
+}
+
+ #find {
+  position: absolute;
+  font-size: 18px;
+  color: white;
+  top: 2px;
+  left: 20px;
+  background-color: rgba(0,0,0,0.8);
+  padding: 14px 20px 0 20px;
+  z-index: 20;
+  text-align: left;
+  line-height: 20px;
+  height: 30px;
+}
+
+ #winner-bar {
+  color: #222;
+}
+
+#check, #new-game{
+  float: right;
+  background-color: #ff0000;
+  border: 0px;
+  color: #fff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  padding: 15px 20px; 
+  margin: 20px 20px 0 0;
+}
+
+#check:hover, #new-game:hover {
+  cursor: pointer;
+  background-color: #999; 
+}
+
+#check:disabled {
+  background-color: #666;
+  color: #999;
+  cursor: none;
+}
+
+#reset, #scoreboard {
+  position: absolute;
+  z-index: 20;
+  bottom: 20px;
+  float: right;
+  background-color: #999;
+  border: 0px;
+  color: #fff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  padding: 15px 20px; 
+}
+
+#reset:hover, #scoreboard:hover {
+  cursor: pointer;
+  background-color: #222;  
+}
+
+#scoreboard {
+  left: 20px;
+}
+
+#scoreboard:disabled {
+  color: #ccc;
+  background-color: #999;
+  cursor: none;
+}
+
+#reset {
+  right: 20px;
+}
+
+
+/***************************************/
+/*Start Screen*/
+/***************************************/
+
+
+#start-host, #start-player{
+  background-color: #282822;
+  border: 0px;
+  color: #fff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  padding: 2.5%; 
+  margin: 2%;
+  font-size: 1.3vw;
+  width: 22%;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+
+#start-host:hover, #start-player:hover {
+  cursor: pointer;
+  background-color: #1C7715; 
+}
+
+#start-screen {
+  text-align: center;
+  height: 68%;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#logo {
+  width: 40%;
+
+}
+
+#desc {
+  width: 33%;
+}
